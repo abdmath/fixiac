@@ -108,6 +108,7 @@ brews:
       name: homebrew-tap
       branch: main
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    disable: "{{ if not .Env.HOMEBREW_TAP_TOKEN }}true{{ end }}"
     skip_upload: auto
     directory: Formula
     homepage: https://github.com/abdmath/fixiac
@@ -124,6 +125,7 @@ scoops:
       name: scoop-fixiac
       branch: main
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    disable: "{{ if not .Env.HOMEBREW_TAP_TOKEN }}true{{ end }}"
     skip_upload: auto
     homepage: https://github.com/abdmath/fixiac
     description: "AI-native Terraform security remediation CLI"
