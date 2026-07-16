@@ -51,7 +51,7 @@ fixiac bridges the gap between **detection** and **remediation** by combining:
 
 ```bash
 # From source
-go install github.com/abdma/fixiac/cmd/fixiac@latest
+go install github.com/abdmath/fixiac/cmd/fixiac@latest
 
 # Or clone and build
 git clone https://github.com/abdmath/fixiac.git
