@@ -1,0 +1,28 @@
+id: cis_aws
+name: CIS Amazon Web Services Foundations Benchmark
+version: "1.5.0"
+controls:
+  - id: "2.1.1"
+    name: Ensure S3 Bucket Policy is set to deny HTTP requests
+    description: At the Amazon S3 bucket level, you can configure permissions through a bucket policy making the objects accessible only through HTTPS.
+    category: Storage
+  - id: "2.1.2"
+    name: Ensure S3 bucket MFA Delete is enabled
+    description: Once MFA Delete is enabled on your sensitive and classified S3 bucket it requires the user to have two forms of authentication.
+    category: Storage
+  - id: "2.1.5"
+    name: Ensure that S3 Buckets are configured with Block Public Access
+    description: Amazon S3 provides Block Public Access settings at the account and bucket level to help you manage public access to S3 resources.
+    category: Storage
+  - id: "2.2.1"
+    name: Ensure EBS Volume Encryption is Enabled in all Regions
+    description: Elastic Compute Cloud (EC2) Elastic Block Store (EBS) volumes support optional encryption at rest using AWS KMS.
+    category: Compute
+  - id: "3.1"
+    name: Ensure CloudTrail is enabled in all regions
+    description: CloudTrail is a web service that records AWS API calls for your account and delivers log files to you.
+    category: Logging
+  - id: "3.7"
+    name: Ensure CloudTrail logs are encrypted at rest using KMS CMKs
+    description: CloudTrail is a web service that records AWS API calls for an account and makes those logs available to users and resources.
+    category: Logging

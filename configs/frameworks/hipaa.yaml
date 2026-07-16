@@ -1,0 +1,24 @@
+id: hipaa
+name: HIPAA Security Rule
+version: "2013"
+controls:
+  - id: 164.308(a)(1)
+    name: Security Management Process
+    description: Implement policies and procedures to prevent, detect, contain, and correct security violations.
+    category: Administrative Safeguards
+  - id: 164.312(a)(1)
+    name: Access Control
+    description: Implement technical policies and procedures for electronic information systems that maintain electronic protected health information to allow access only to those persons or software programs that have been granted access rights.
+    category: Technical Safeguards
+  - id: 164.312(a)(2)(iv)
+    name: Encryption and Decryption
+    description: Implement a mechanism to encrypt and decrypt electronic protected health information.
+    category: Technical Safeguards
+  - id: 164.312(b)
+    name: Audit Controls
+    description: Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.
+    category: Technical Safeguards
+  - id: 164.312(e)(1)
+    name: Transmission Security
+    description: Implement technical security measures to guard against unauthorized access to electronic protected health information that is being transmitted over an electronic communications network.
+    category: Technical Safeguards

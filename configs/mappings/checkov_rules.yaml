@@ -1,0 +1,57 @@
+- rule_id: CKV_AWS_18
+  description: Ensure the S3 bucket has access logging enabled
+  severity: MEDIUM
+  resource_type: aws_s3_bucket
+  controls:
+    - framework: cis_aws
+      control_id: "3.1"
+    - framework: soc2
+      control_id: CC7.2
+
+- rule_id: CKV_AWS_19
+  description: Ensure the S3 bucket has server-side-encryption enabled
+  severity: HIGH
+  resource_type: aws_s3_bucket
+  controls:
+    - framework: cis_aws
+      control_id: "2.1.1"
+    - framework: soc2
+      control_id: CC6.1
+
+- rule_id: CKV_AWS_21
+  description: Ensure the S3 bucket has versioning enabled
+  severity: MEDIUM
+  resource_type: aws_s3_bucket
+  controls:
+    - framework: cis_aws
+      control_id: "2.1.2"
+
+- rule_id: CKV_AWS_53
+  description: Ensure S3 bucket has block public ACLS enabled
+  severity: HIGH
+  resource_type: aws_s3_bucket
+  controls:
+    - framework: cis_aws
+      control_id: "2.1.5"
+    - framework: soc2
+      control_id: CC6.6
+
+- rule_id: CKV_AWS_3
+  description: Ensure EBS volumes are encrypted
+  severity: HIGH
+  resource_type: aws_ebs_volume
+  controls:
+    - framework: cis_aws
+      control_id: "2.2.1"
+    - framework: soc2
+      control_id: CC6.1
+
+- rule_id: CKV_AWS_35
+  description: Ensure CloudTrail logs are encrypted at rest using KMS CMKs
+  severity: HIGH
+  resource_type: aws_cloudtrail
+  controls:
+    - framework: cis_aws
+      control_id: "3.7"
+    - framework: soc2
+      control_id: CC6.1

@@ -1,0 +1,32 @@
+id: iso27001
+name: ISO/IEC 27001:2022
+version: "2022"
+controls:
+  - id: A.5.15
+    name: Access control
+    description: Rules to control physical and logical access to information and other associated assets shall be established and implemented.
+    category: Organizational controls
+  - id: A.8.2
+    name: Privileged access rights
+    description: The allocation and use of privileged access rights shall be restricted and managed.
+    category: Technological controls
+  - id: A.8.3
+    name: Information access restriction
+    description: Access to information and other associated assets shall be restricted in accordance with the established topic-specific policy on access control.
+    category: Technological controls
+  - id: A.8.9
+    name: Configuration management
+    description: Configurations, including security configurations, of hardware, software, services and networks shall be established, documented, implemented, monitored and reviewed.
+    category: Technological controls
+  - id: A.8.12
+    name: Data leakage prevention
+    description: Data leakage prevention measures shall be applied to systems, networks and any other devices that process, store or transmit sensitive information.
+    category: Technological controls
+  - id: A.8.20
+    name: Network security
+    description: Networks and network devices shall be secured, managed and controlled to protect information in systems and applications.
+    category: Technological controls
+  - id: A.8.24
+    name: Use of cryptography
+    description: Rules for the effective and appropriate use of cryptography, including key management, shall be defined and implemented.
+    category: Technological controls

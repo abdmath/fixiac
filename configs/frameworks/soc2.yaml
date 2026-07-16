@@ -1,0 +1,20 @@
+id: soc2
+name: SOC 2 Type II
+version: "2017"
+controls:
+  - id: CC6.1
+    name: Logical and Physical Access Controls
+    description: The entity implements logical access security software, infrastructure, and architectures over protected information assets.
+    category: Access Control
+  - id: CC6.6
+    name: System Boundaries
+    description: The entity implements logical access security measures to protect against threats from sources outside its system boundaries.
+    category: Access Control
+  - id: CC7.2
+    name: Monitoring Activities
+    description: The entity monitors system components and the operation of those components for anomalies that are indicative of malicious acts.
+    category: Monitoring
+  - id: CC8.1
+    name: Change Management
+    description: The entity authorizes, designs, develops or acquires, configures, documents, tests, approves, and implements changes to infrastructure.
+    category: Change Management
