@@ -1,0 +1,139 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+version: 2
+
+project_name: fixiac
+
+before:
+  hooks:
+    - go mod tidy
+    - go vet ./...
+
+builds:
+  - id: fixiac
+    main: ./cmd/fixiac
+    binary: fixiac
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X main.version={{.Version}}
+      - -X main.commit={{.ShortCommit}}
+      - -X main.date={{.Date}}
+
+archives:
+  - id: fixiac
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64"}}x86_64
+      {{- else if eq .Arch "386"}}i386
+      {{- else }}{{ .Arch }}{{ end }}
+    files:
+      - README.md
+      - LICENSE
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+      - "^chore:"
+      - "^style:"
+      - Merge pull request
+      - Merge branch
+
+release:
+  github:
+    owner: abdmath
+    name: fixiac
+  draft: false
+  prerelease: auto
+  name_template: "v{{.Version}}"
+  header: |
+    ## fixiac v{{.Version}}
+
+    AI-native Terraform security remediation CLI.
+
+    ### Installation
+
+    **macOS (Homebrew)**
+    ```bash
+    brew install abdmath/tap/fixiac
+    ```
+
+    **Linux / macOS (curl)**
+    ```bash
+    curl -sSL https://raw.githubusercontent.com/abdmath/fixiac/main/scripts/install.sh | sh
+    ```
+
+    **Windows (Scoop)**
+    ```powershell
+    scoop bucket add fixiac https://github.com/abdmath/scoop-fixiac.git
+    scoop install fixiac
+    ```
+
+    **Go install**
+    ```bash
+    go install github.com/abdma/fixiac/cmd/fixiac@latest
+    ```
+  footer: |
+    **Full Changelog**: https://github.com/abdmath/fixiac/compare/{{ .PreviousTag }}...{{ .Tag }}
+
+brews:
+  - repository:
+      owner: abdmath
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    directory: Formula
+    homepage: https://github.com/abdmath/fixiac
+    description: "AI-native Terraform security remediation CLI"
+    license: MIT
+    test: |
+      system "#{bin}/fixiac", "version"
+    install: |
+      bin.install "fixiac"
+
+scoops:
+  - repository:
+      owner: abdmath
+      name: scoop-fixiac
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    homepage: https://github.com/abdmath/fixiac
+    description: "AI-native Terraform security remediation CLI"
+    license: MIT
+
+nfpms:
+  - id: fixiac
+    package_name: fixiac
+    vendor: abdmath
+    homepage: https://github.com/abdmath/fixiac
+    maintainer: abdmath
+    description: "AI-native Terraform security remediation CLI"
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
