@@ -33,8 +33,13 @@ jobs:
       - name: Vet
         run: go vet ./...
 
-      - name: Test
+      - name: Test (Unix)
+        if: matrix.os != 'windows-latest'
         run: go test -race -coverprofile=coverage.out ./...
+
+      - name: Test (Windows)
+        if: matrix.os == 'windows-latest'
+        run: go test -coverprofile=coverage.out ./...
 
       - name: Build
         run: go build -o fixiac ./cmd/fixiac
