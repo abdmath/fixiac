@@ -69,6 +69,7 @@ release:
   github:
     owner: abdmath
     name: fixiac
+  replace_existing_artifacts: true
   draft: false
   prerelease: auto
   name_template: "v{{.Version}}"
