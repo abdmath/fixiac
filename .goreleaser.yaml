@@ -107,7 +107,7 @@ brews:
       owner: abdmath
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
-    skip_upload: auto
+    skip_upload: "{{ if not .Env.HOMEBREW_TAP_TOKEN }}true{{ else }}auto{{ end }}"
     directory: Formula
     homepage: https://github.com/abdmath/fixiac
     description: "AI-native Terraform security remediation CLI"
@@ -122,7 +122,7 @@ scoops:
       owner: abdmath
       name: scoop-fixiac
       token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
-    skip_upload: auto
+    skip_upload: "{{ if not .Env.HOMEBREW_TAP_TOKEN }}true{{ else }}auto{{ end }}"
     homepage: https://github.com/abdmath/fixiac
     description: "AI-native Terraform security remediation CLI"
     license: MIT

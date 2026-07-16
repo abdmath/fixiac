@@ -35,11 +35,11 @@ jobs:
 
       - name: Test (Unix)
         if: matrix.os != 'windows-latest'
-        run: go test -race -coverprofile=coverage.out ./...
+        run: go test -race ./...
 
       - name: Test (Windows)
         if: matrix.os == 'windows-latest'
-        run: go test -coverprofile=coverage.out ./...
+        run: go test ./...
 
       - name: Build
         run: go build -o fixiac ./cmd/fixiac
